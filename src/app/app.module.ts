@@ -4,9 +4,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {ClarityModule} from "@clr/angular";
 import { SideNavOuterToolbarComponent } from "./@core/layout/side-nav-outer-toolbar/side-nav-outer-toolbar.component";
-
-import {ClarityIcons, cogIcon, eyeIcon, homeIcon, loginIcon, logoutIcon, userIcon, vmBugIcon} from '@cds/core/icon';
-ClarityIcons.addIcons(userIcon, homeIcon, vmBugIcon, cogIcon, eyeIcon, logoutIcon, loginIcon);
+import {ClarityIcons, cogIcon, eyeIcon, homeIcon, loginIcon, logoutIcon, userIcon, vmBugIcon, fileShareIcon, exportIcon, administratorIcon} from '@cds/core/icon';
+ClarityIcons.addIcons(userIcon, homeIcon, vmBugIcon, cogIcon, eyeIcon, logoutIcon, loginIcon, fileShareIcon, exportIcon, administratorIcon);
 
 @NgModule({
   declarations: [
