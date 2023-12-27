@@ -8,18 +8,17 @@ interface NavigationItem {
 export const APP_NAVIGATION: NavigationItem[] = [
   {
     text: 'Home',
-    path: '/',
+    path: '/home',
     icon: 'home',
   },
   {
     text: 'Configurações',
     icon: 'cog',
-    path: '',
     items: [
       {
-        text: 'Home',
-        path: '/',
-        icon: 'home',
+        text: 'Configuração 1',
+        path: '/config',
+        icon: 'cog'
       },
     ],
   },
