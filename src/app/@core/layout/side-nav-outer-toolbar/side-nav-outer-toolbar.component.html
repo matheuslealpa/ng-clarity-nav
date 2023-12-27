@@ -1,7 +1,58 @@
 <div class="main-container">
-  <app-header></app-header>
+  <header class="header-6">
+    <div class="branding">
+      <cds-icon shape="home"></cds-icon>
+      <a routerLink="#" class="nav-link">
+        <span class="title">{{title}}</span>
+      </a>
+    </div>
+    <div class="header-actions">
+      <div class="header-actions">
+        <div class="header-actions">
+          <clr-dropdown>
+            <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
+              <cds-icon shape="user"></cds-icon>
+              <cds-icon shape="angle" direction="down"></cds-icon>
+            </button>
+            <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+              <div *ngFor="let item of dropdownItems">
+                <button clrDropdownItem>
+                  <cds-icon [attr.shape]="item.icon"></cds-icon>
+                  {{ item.text }}
+                </button>
+              </div>
+            </clr-dropdown-menu>
+          </clr-dropdown>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <div class="content-container">
-    <app-side-navigation-menu></app-side-navigation-menu>
+    <clr-vertical-nav [clrVerticalNavCollapsible]="true">
+      <div *ngFor="let item of appNavigation">
+        <ng-container *ngIf="!item.items && appNavigation.length > 0">
+          <a clrVerticalNavLink [routerLink]="item.path" routerLinkActive="active">
+            <cds-icon clrVerticalNavIcon [attr.shape]="item.icon"></cds-icon>
+            {{item.text}}
+          </a>
+        </ng-container>
+        <ng-container *ngIf="item.items">
+          <div *ngFor="let childrenItems of item.items">
+            <clr-vertical-nav-group routerLinkActive="active">
+              <cds-icon [attr.shape]="item.icon" clrVerticalNavIcon></cds-icon>
+              {{item.text}}
+              <clr-vertical-nav-group-children *clrIfExpanded="true">
+                <a clrVerticalNavLink [routerLink]="childrenItems.path" routerLinkActive="active">
+                  <cds-icon clrVerticalNavIcon [attr.shape]="childrenItems.icon"></cds-icon>
+                  {{childrenItems.text}}
+                </a>
+              </clr-vertical-nav-group-children>
+            </clr-vertical-nav-group>
+          </div>
+        </ng-container>
+      </div>
+    </clr-vertical-nav>
     <div class="content-area">
       <ng-content></ng-content>
     </div>
