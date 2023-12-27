@@ -1,24 +1,44 @@
 <div class="main-container">
-    <header class="header-6">
-        <div class="branding">
-            <a routerLink="#" class="nav-link">
-                <span class="title">{{title}}</span>
-            </a>
-        </div>
-    </header>
-    <div class="content-container">
-        <clr-vertical-nav [clrVerticalNavCollapsible]="true" class="nav-trigger--bottom">
-            <div *ngFor="let item of appNavigation">
-                <a [routerLink]="item.path" routerLinkActive="active">
-                    <clr-icon clrVerticalNavIcon shape="home"></clr-icon>
-                    {{item.caption}}
-                </a>
-                <!-- <clr-vertical-nav-group>
-                    <clr-icon clrVerticalNavIcon></clr-icon>
-                    {{item.caption}}
-            </clr-vertical-nav-group> -->
-            </div>
-            
-        </clr-vertical-nav>
+  <header class="header-6">
+    <div class="branding">
+      <cds-icon shape="home"></cds-icon>
+      <a routerLink="#" class="nav-link">
+        <span class="title">{{title}}</span>
+      </a>
     </div>
+  </header>
+  <div class="content-container">
+    <clr-vertical-nav [clrVerticalNavCollapsible]="true" [clrVerticalNavCollapsed]="false">
+      <div *ngFor="let item of appNavigation">
+        <ng-container *ngIf="!item.items && appNavigation.length > 0">
+          <a clrVerticalNavLink [routerLink]="item.path" routerLinkActive="active">
+            <cds-icon clrVerticalNavIcon [attr.shape]="item.icon"></cds-icon>
+            {{item.text}}
+          </a>
+        </ng-container>
+<!--        <ng-container *ngIf="item.items">-->
+<!--          <div *ngFor="let childrenItems of item.items">-->
+<!--            <clr-vertical-nav-group routerLinkActive="active">-->
+<!--              <cds-icon [attr.shape]="item.icon" clrVerticalNavIcon></cds-icon>-->
+<!--              {{item.text}}-->
+<!--              <clr-vertical-nav-group-children>-->
+<!--                <a clrVerticalNavLink [routerLink]="childrenItems.path" routerLinkActive="active">-->
+<!--                  <cds-icon clrVerticalNavIcon [attr.shape]="childrenItems.icon"></cds-icon>-->
+<!--                  {{childrenItems.text}}-->
+<!--                </a>-->
+<!--              </clr-vertical-nav-group-children>-->
+<!--            </clr-vertical-nav-group>-->
+<!--          </div>-->
+<!--        </ng-container>-->
+      </div>
+<!--      <clr-vertical-nav-group routerLinkActive="active">-->
+<!--        <cds-icon shape="user" clrVerticalNavIcon></cds-icon>-->
+<!--        Normal-->
+<!--        <clr-vertical-nav-group-children>-->
+<!--          <a clrVerticalNavLink routerLink="./normal/pidgey" routerLinkActive="active">Pidgey</a>-->
+<!--          <a clrVerticalNavLink routerLink="./normal/snorlax" routerLinkActive="active">Snorlax</a>-->
+<!--        </clr-vertical-nav-group-children>-->
+<!--      </clr-vertical-nav-group>-->
+    </clr-vertical-nav>
+  </div>
 </div>

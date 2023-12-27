@@ -1,21 +1,26 @@
-export const APP_NAVIGATION = [
-    {
-        caption: 'Home',
+interface NavigationItem {
+  text: string;
+  path?: string;
+  icon: string;
+  items?: NavigationItem[];
+}
+
+export const APP_NAVIGATION: NavigationItem[] = [
+  {
+    text: 'Home',
+    path: '/',
+    icon: 'home',
+  },
+  {
+    text: 'Configurações',
+    icon: 'cog',
+    path: '',
+    items: [
+      {
+        text: 'Home',
         path: '/',
-        icon: 'home'
-    },
-    {
-        caption: 'Configurações',
-        icon: 'administrator',
-        items: [
-            {
-                caption: 'Configuração 1',
-                path: '/conf1'
-            },
-            {
-                caption: 'Configuração 2',
-                path: '/conf2'
-            }
-        ]
-    }
-]
+        icon: 'home',
+      },
+    ],
+  },
+];
