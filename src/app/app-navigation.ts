@@ -4,6 +4,7 @@ interface NavigationItem {
   icon: string;
   items?: NavigationItem[];
 }
+
 export const APP_NAVIGATION: NavigationItem[] = [
   {
     text: 'Home',
@@ -19,12 +20,6 @@ export const APP_NAVIGATION: NavigationItem[] = [
         path: '/rel1',
         icon: 'file-share'
       },
-      {
-        text: 'Relatório 2',
-        path: '/rel2',
-        icon: 'file-share'
-      },
-
     ],
   },
   {
@@ -33,15 +28,9 @@ export const APP_NAVIGATION: NavigationItem[] = [
     items: [
       {
         text: 'Configuração 1',
-        path: '/conf2ig',
+        path: '/conf1',
         icon: 'cog'
       },
-      {
-        text: 'Configuração 2',
-        path: '/con2fig',
-        icon: 'cog'
-      },
-
     ],
   },
 ];

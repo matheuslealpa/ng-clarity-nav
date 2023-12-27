@@ -16,8 +16,8 @@ export class SideNavOuterToolbarComponent {
   protected title: string = 'app-side-nav-outer-bar';
   protected appNavigation = APP_NAVIGATION;
   dropdownItems = [
-    {text: 'Sobre', icon: 'info-circle'},
-    {text: 'Logout', icon: 'logout'},
+    {text: 'Sobre', icon: 'info-circle', onClick: () => console.log('Sobre')},
+    {text: 'Logout', icon: 'logout', onClick: () => console.log('Logout')},
   ];
 
 

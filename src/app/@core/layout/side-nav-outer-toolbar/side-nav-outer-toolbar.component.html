@@ -16,7 +16,7 @@
             </button>
             <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
               <div *ngFor="let item of dropdownItems">
-                <button clrDropdownItem>
+                <button clrDropdownItem (click)="item.onClick()">
                   <cds-icon [attr.shape]="item.icon"></cds-icon>
                   {{ item.text }}
                 </button>

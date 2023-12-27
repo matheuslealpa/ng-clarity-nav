@@ -6,6 +6,14 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./pages/home/home-routing').then(r => r.HOME_ROUTING)
   },
+  {
+    path: 'rel1',
+    loadChildren: () => import('./pages/rel1/rel1-routing').then(r => r.REL_ROUTING)
+  },
+  {
+    path: 'conf1',
+    loadChildren: () => import('./pages/conf1/conf1.routing').then(r => r.CONF1_ROUTING)
+  },
   {path: '**', redirectTo: 'home'},
 ];
 
